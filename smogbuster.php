@@ -5,16 +5,14 @@
 * Description: Plugin for synchronization air quality data from api.gios.gov.pl
 * Version: 1.0
 * Author: Marcin Kosmala
-* Author URI: https://www.oxyshop.pl/
+* Author URI: https://www.oxyshop.pl/.
 **/
-
 require_once dirname(__FILE__).'/src/SmogBusterKernel.php';
 require_once dirname(__FILE__).'/src/SmogBusterFetcher.php';
 require_once dirname(__FILE__).'/src/SmogBusterApi.php';
 
 global $wpdb;
 $smogBusterKernel = new SmogBusterKernel($wpdb);
-
 
 register_activation_hook(__FILE__, function () use ($smogBusterKernel) {
     $smogBusterKernel->install();
@@ -34,7 +32,7 @@ add_action('smogbuster_sync_event', function () use ($smogBusterKernel) {
 });
 
 add_action('rest_api_init', function () use ($smogBusterKernel) {
-    register_rest_route( 'smogbuster', '/stations', [
+    register_rest_route('smogbuster', '/stations', [
         'methods' => 'GET',
         'callback' => function () use ($smogBusterKernel) {
             return $smogBusterKernel->api->getAirQuality();
@@ -43,7 +41,7 @@ add_action('rest_api_init', function () use ($smogBusterKernel) {
 });
 
 add_action('rest_api_init', function () use ($smogBusterKernel) {
-    register_rest_route( 'smogbuster', '/sync', [
+    register_rest_route('smogbuster', '/sync', [
         'methods' => 'GET',
         'callback' => function () use ($smogBusterKernel) {
             return $smogBusterKernel->fetcher->fetch();
