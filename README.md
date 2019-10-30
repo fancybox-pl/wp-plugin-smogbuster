@@ -5,7 +5,7 @@ For synchronization air quality data from **api.gios.gov.pl**
 Api documentation [http://powietrze.gios.gov.pl/pjp/content/api](http://powietrze.gios.gov.pl/pjp/content/api)
 
 ## Instalation process
-1. Install module in presta
+1. Install plugin
 1. Data will be sync hourly by wp cron
 
 ## Synchronization air quality data
