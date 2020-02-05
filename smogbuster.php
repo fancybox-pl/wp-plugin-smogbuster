@@ -22,7 +22,7 @@ register_deactivation_hook(__FILE__, function () use ($smogBusterKernel) {
     $smogBusterKernel->uninstall();
 });
 
-register_activation_hook(__FILE__, function () use ($smogBusterKernel) {
+register_activation_hook(__FILE__, function () {
     if (!wp_next_scheduled('smogbuster_sync_event')) {
         wp_schedule_event(time(), 'hourly', 'smogbuster_sync_event');
     }
@@ -47,4 +47,26 @@ add_action('rest_api_init', function () use ($smogBusterKernel) {
             return $smogBusterKernel->fetcher->fetch();
         },
     ]);
+});
+
+add_shortcode('smogbuster', function () {
+    return file_get_contents(dirname(__FILE__).'/templates/map.html');
+});
+
+add_action('wp_enqueue_scripts', function () {
+    global $post;
+
+    if (has_shortcode( $post->post_content, 'smogbuster')) {
+        wp_enqueue_style('smogbuster-style', plugin_dir_url(__FILE__).'assets/smogbuster.css');
+        wp_enqueue_style('smogbuster-mapbox-style', 'https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css');
+    }
+});
+
+add_action('wp_footer', function () {
+    global $post;
+
+    if (has_shortcode( $post->post_content, 'smogbuster')) {
+        wp_enqueue_script('smogbuster-mapbox-script', 'https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js');
+        wp_enqueue_script('smogbuster-script', plugin_dir_url(__FILE__).'assets/smogbuster.js');
+    }
 });

@@ -1,0 +1,112 @@
+<div id="smogBuster" class="smogBuster">
+    <nav class="filter-ui">
+        <div class="filter-wrapper">
+            <span class="filter-title">Filtr zanieczyszczeń</span>
+            <div id="filters">
+                <div class="filters__item">
+                    <input id="default" class="radio-checked" checked="checked" name="tmp" type="radio" />
+                    <label for="default">Ogólna jakość powietrza</label>
+                </div>
+                <div class="filters__item filters__item--half">
+                    <input id="so2" name="tmp" type="radio" />
+                    <label for="so2">SO<sub>2</sub></label>
+                </div>
+                <div class="filters__item filters__item--half">
+                    <input id="pm10" name="tmp" type="radio" />
+                    <label for="pm10">Pył PM10</label>
+                </div>
+                <div class="filters__item filters__item--half">
+                    <input id="co" name="tmp" type="radio" />
+                    <label for="co">CO</label>
+                </div>
+                <div class="filters__item filters__item--half">
+                    <input id="pm25" name="tmp" type="radio" />
+                    <label for="pm25">Pył PM2,5</label>
+                </div>
+                <div class="filters__item filters__item--half">
+                    <input id="o3" name="tmp" type="radio" />
+                    <label for="o3">O<sub>3</sub></label>
+                </div>
+                <div class="filters__item filters__item--half">
+                    <input id="no2" name="tmp" type="radio" />
+                    <label for="no2">NO<sub>2</sub></label>
+                </div>
+                <div class="filters__item">
+                    <input id="benzen" name="tmp" type="radio" />
+                    <label for="benzen">Benzen</label>
+                </div>
+            </div>
+        </div>
+        <div class="filter-legend">
+            <span class="filter-title">Legenda</span>
+            <ul class="filter-legend--default">
+                <li class="quality-bdb">Bardzo dobry</li>
+                <li class="quality-db">Dobry</li>
+                <li class="quality-ok">Umiarkowany</li>
+                <li class="quality-dst">Dostateczny</li>
+                <li class="quality-ndst">Zły</li>
+                <li class="quality-ndp">Bardzo zły</li>
+                <li class="quality-nd">Brak danych</li>
+            </ul>
+            <ul class="filter-legend--so2 filter-legend--hidden">
+                <li><span class="filter-dt">0 - 50.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-bdb">Bardzo dobry</span></li>
+                <li><span class="filter-dt">51 - 100.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-db">Dobry</span></li>
+                <li><span class="filter-dt">101 - 200.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ok">Umiarkowany</span></li>
+                <li><span class="filter-dt">201 - 350.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-dst">Dostateczny</span></li>
+                <li><span class="filter-dt">351 - 500.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndst">Zły</span></li>
+                <li><span class="filter-dt">&gt; 501 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndp">Bardzo zły</span></li>
+            </ul>
+            <ul class="filter-legend--co filter-legend--hidden">
+                <li><span class="filter-dt">0 - 3 mg/m<sup>3</sup></span> <span class="filter-dd quality-bdb">Bardzo dobry</span></li>
+                <li><span class="filter-dt">3 - 7 mg/m<sup>3</sup></span> <span class="filter-dd quality-db">Dobry</span></li>
+                <li><span class="filter-dt">7 - 11 mg/m<sup>3</sup></span> <span class="filter-dd quality-ok">Umiarkowany</span></li>
+                <li><span class="filter-dt">11 - 15 mg/m<sup>3</sup></span> <span class="filter-dd quality-dst">Dostateczny</span></li>
+                <li><span class="filter-dt">15 - 21 mg/m<sup>3</sup></span> <span class="filter-dd quality-ndst">Zły</span></li>
+                <li><span class="filter-dt">&gt; 21 mg/m<sup>3</sup></span> <span class="filter-dd quality-ndp">Bardzo zły</span></li>
+            </ul>
+            <ul class="filter-legend--o3 filter-legend--hidden">
+                <li><span class="filter-dt">0 - 70.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-bdb">Bardzo dobry</span></li>
+                <li><span class="filter-dt">71 - 120.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-db">Dobry</span></li>
+                <li><span class="filter-dt">121 - 150.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ok">Umiarkowany</span></li>
+                <li><span class="filter-dt">151 - 180.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-dst">Dostateczny</span></li>
+                <li><span class="filter-dt">181 - 240.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndst">Zły</span></li>
+                <li><span class="filter-dt">&gt; 241 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndp">Bardzo zły</span></li>
+            </ul>
+            <ul class="filter-legend--benzen filter-legend--hidden">
+                <li><span class="filter-dt">0 - 6 mg/m<sup>3</sup></span> <span class="filter-dd quality-bdb">Bardzo dobry</span></li>
+                <li><span class="filter-dt">6 - 11 mg/m<sup>3</sup></span> <span class="filter-dd quality-db">Dobry</span></li>
+                <li><span class="filter-dt">11 - 16 mg/m<sup>3</sup></span> <span class="filter-dd quality-ok">Umiarkowany</span></li>
+                <li><span class="filter-dt">16 - 21 mg/m<sup>3</sup></span> <span class="filter-dd quality-dst">Dostateczny</span></li>
+                <li><span class="filter-dt">21 - 51 mg/m<sup>3</sup></span> <span class="filter-dd quality-ndst">Zły</span></li>
+                <li><span class="filter-dt">&gt; 51 mg/m<sup>3</sup></span> <span class="filter-dd quality-ndp">Bardzo zły</span></li>
+            </ul>
+            <ul class="filter-legend--pm10 filter-legend--hidden">
+                <li><span class="filter-dt">0 - 20.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-bdb">Bardzo dobry</span></li>
+                <li><span class="filter-dt">21 - 60.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-db">Dobry</span></li>
+                <li><span class="filter-dt">61 - 100.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ok">Umiarkowany</span></li>
+                <li><span class="filter-dt">101 - 140.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-dst">Dostateczny</span></li>
+                <li><span class="filter-dt">141 - 200.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndst">Zły</span></li>
+                <li><span class="filter-dt">&gt; 201 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndp">Bardzo zły</span></li>
+            </ul>
+            <ul class="filter-legend--pm25 filter-legend--hidden">
+                <li><span class="filter-dt">0 - 12.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-bdb">Bardzo dobry</span></li>
+                <li><span class="filter-dt">13 - 36.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-db">Dobry</span></li>
+                <li><span class="filter-dt">37 - 60.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ok">Umiarkowany</span></li>
+                <li><span class="filter-dt">61 - 84.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-dst">Dostateczny</span></li>
+                <li><span class="filter-dt">85 - 120.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndst">Zły</span></li>
+                <li><span class="filter-dt">&gt; 121 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndp">Bardzo zły</span></li>
+            </ul>
+            <ul class="filter-legend--no2 filter-legend--hidden">
+                <li><span class="filter-dt">0 - 40.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-bdb">Bardzo dobry</span></li>
+                <li><span class="filter-dt">41 - 100.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-db">Dobry</span></li>
+                <li><span class="filter-dt">101 - 150.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ok">Umiarkowany</span></li>
+                <li><span class="filter-dt">151 - 200.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-dst">Dostateczny</span></li>
+                <li><span class="filter-dt">201 - 400.99 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndst">Zły</span></li>
+                <li><span class="filter-dt">&gt; 401 µg/m<sup>3</sup></span> <span class="filter-dd quality-ndp">Bardzo zły</span></li>
+            </ul>
+        </div>
+        <div class="filter-info"><span class="filter-info--show">Zwiń</span> <span class="filter-info--show hidden">Rozwiń</span></div>
+    </nav>
+    <div id="map"></div>
+</div>
+<div class="smogBuster-gios">Mapa powstała dzięki danym pomiarowym udostępnionym przez <a href="http://www.gios.gov.pl/pl/" target="_blank" rel="nofollow noopener noreferrer">Główny Inspektorat Ochrony Środowiska</a></div>

@@ -51,3 +51,7 @@ Example response:
   ...
 ]
 ```
+
+## Shortcode for map
+
+``[shortcode]``
